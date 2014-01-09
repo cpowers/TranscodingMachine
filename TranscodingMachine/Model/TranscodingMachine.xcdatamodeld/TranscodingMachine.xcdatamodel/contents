@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="TMEncodeTaskModel" representedClassName="TMEncodeTaskModel" parentEntity="TMTaskModel" syncable="YES">
+        <relationship name="mediaItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMMediaItem" inverseName="encodeTask" inverseEntity="TMMediaItem" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="TMMediaItem" representedClassName="TMMediaItem" syncable="YES">
+        <attribute name="copyright" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coverArt" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="episode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hdVideo" attributeType="Integer 16" minValueString="0" maxValueString="1" defaultValueString="0" syncable="YES"/>
+        <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="network" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="season" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="showName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" minValueString="1" maxValueString="2" defaultValueString="1" syncable="YES"/>
+        <relationship name="encodeTask" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMEncodeTaskModel" inverseName="mediaItem" inverseEntity="TMEncodeTaskModel" indexed="YES" syncable="YES"/>
+        <relationship name="metadataTask" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMMetadataTaskModel" inverseName="mediaItem" inverseEntity="TMMetadataTaskModel" syncable="YES"/>
+        <relationship name="tagTask" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMTagTaskModel" inverseName="mediaItem" inverseEntity="TMTagTaskModel" syncable="YES"/>
+    </entity>
+    <entity name="TMMetadataTaskModel" representedClassName="TMMetadataTaskModel" parentEntity="TMTaskModel" syncable="YES">
+        <relationship name="mediaItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMMediaItem" inverseName="metadataTask" inverseEntity="TMMediaItem" syncable="YES"/>
+    </entity>
+    <entity name="TMTagTaskModel" representedClassName="TMTagTaskModel" parentEntity="TMTaskModel" syncable="YES">
+        <relationship name="mediaItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TMMediaItem" inverseName="tagTask" inverseEntity="TMMediaItem" syncable="YES"/>
+    </entity>
+    <entity name="TMTaskModel" representedClassName="TMTaskModel" isAbstract="YES" syncable="YES">
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TMUnrarTaskModel" representedClassName="TMUnrarTaskModel" parentEntity="TMTaskModel" syncable="YES">
+        <attribute name="rarFile" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TMEncodeTaskModel" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="TMMediaItem" positionX="0" positionY="0" width="128" height="330"/>
+        <element name="TMMetadataTaskModel" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="TMTagTaskModel" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="TMTaskModel" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="TMUnrarTaskModel" positionX="160" positionY="192" width="128" height="60"/>
+    </elements>
+</model>
